@@ -1,0 +1,18 @@
+graph TD
+    subgraph AWS["AWS Cloud"]
+        S3[(S3)]
+        EB[EventBridge]
+        KMS[KMS]
+        SM[Secrets Manager]
+        CW[CloudWatch]
+        VPC[VPC]
+        ECR[(ECR)]
+    end
+
+    Lambda --> S3
+    S3 --> EB
+    EB --> KMS
+    KMS --> SM
+    SM --> CW
+    CW --> VPC
+    VPC --> ECR
